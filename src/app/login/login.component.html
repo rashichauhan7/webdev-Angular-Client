@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <h2>Login</h2>
+  <input [(ngModel)]="username" class="form-control" placeholder="username"/>
+  <input [(ngModel)]="password" class="form-control" placeholder="password"/>
+
+  <button (click)="login(username, password)" class="btn btn-primary btn-block">
+    Login
+  </button>
+  <a class="link" routerLink="/home/register">Register</a>
+  <a class="link" routerLink="/home">Home</a>
+</div>

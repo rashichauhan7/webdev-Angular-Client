@@ -1,8 +1,20 @@
 <div class="container-fluid">
   <h1>Welcome to Whiteboard</h1>
 
-  <div>
-    <app-course-grid></app-course-grid>
-  </div>
+
+
+  <a routerLink="sections">Sections</a> |
+
+  <a routerLink="courses">Course Navigator</a> |
+
+  <a routerLink="login">Login</a> |
+
+  <a routerLink="register">Register</a>
+
+
+
+  <router-outlet></router-outlet>
+
+<app-course-grid></app-course-grid>
 
 </div>
