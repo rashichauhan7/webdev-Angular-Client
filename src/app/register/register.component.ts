@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
     if (this.password === this.verifyPassword) {
       this.userService.findUserByUserName(user)
         .then((u) => {
-          if (u === null) {
+          if (u === null || u === undefined) {
             this.userService.register(user)
               .then(sd => this.router.navigate(['/home/profile']));
           }
