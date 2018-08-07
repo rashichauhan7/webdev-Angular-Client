@@ -2,7 +2,15 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class UserServiceClient {
-
+  findUserByUserName = (username) =>
+    fetch('https://webdev-angular-node-server.herokuapp.com/api/user', {
+      method: 'post',
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(username)
+    })
   register = (user) =>
     fetch('https://webdev-angular-node-server.herokuapp.com/api/register', {
       method: 'post',

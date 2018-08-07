@@ -3,11 +3,8 @@
   <input [(ngModel)]="username" class="form-control" placeholder="username"/>
   <input [(ngModel)]="password" class="form-control" placeholder="password"/>
   <input [(ngModel)]="verifyPassword" class="form-control" placeholder="Verify Password"/>
-  <input [(ngModel)]="firstName" class="form-control" placeholder="First Name"/>
-  <input [(ngModel)]="lastName" class="form-control" placeholder="Last Name"/>
-  <input [(ngModel)]="email" class="form-control" placeholder="Email"/>
 
-  <button (click)="register(username, password, verifyPassword, firstName, lastName, email)" class="btn btn-primary btn-block">
+  <button (click)="register(username, password, verifyPassword)" class="btn btn-primary btn-block">
     Register
   </button>
   <a class="link" routerLink="/home/login">Login</a>

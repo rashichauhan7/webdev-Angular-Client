@@ -15,22 +15,31 @@ export class RegisterComponent implements OnInit {
   lastName: String;
   email: String;
   constructor(private router: Router, private userService: UserServiceClient) { }
-  register = (username, password, verifyPassword, firstName, lastName, email) => {
+  register = (username, password, verifyPassword) => {
 
     const user = {
       username: username,
       password: password,
       verifyPassword: verifyPassword,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
+      firstName: '',
+      lastName: '',
+      email: '',
       address: '',
       phoneNo: ''
     };
     console.log(user);
     if (this.password === this.verifyPassword) {
-      this.userService.register(user)
-        .then(u => this.router.navigate(['/home/profile']));
+      this.userService.findUserByUserName(username)
+        .then((u) => {
+          if (u === null) {
+            this.userService.register(user)
+              .then(sd => this.router.navigate(['/home/profile']));
+          }
+          else {
+            alert("Username already taken");
+          }
+        })
+
     }
     else {
       alert("Passwords don't match");
