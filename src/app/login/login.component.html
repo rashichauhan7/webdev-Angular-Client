@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h2>Login</h2>
   <input [(ngModel)]="username" class="form-control" placeholder="username"/>
-  <input [(ngModel)]="password" class="form-control" placeholder="password"/>
+  <input type ="password" [(ngModel)]="password" class="form-control" placeholder="password"/>
 
   <button (click)="login(username, password)" class="btn btn-primary btn-block">
     Login

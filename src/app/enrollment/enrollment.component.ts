@@ -10,9 +10,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class EnrollmentComponent implements OnInit {
 
-  sections = [];
+  sectionsCourse = [];
+  sectionsStudent = [];
   user = {
-    _id: ''
+    _id: '',
+    msg: 'x'
   };
   courseId = '';
   constructor(private router: ActivatedRoute, private sectionService: SectionServiceClient, private userService: UserServiceClient) {
@@ -21,15 +23,52 @@ export class EnrollmentComponent implements OnInit {
   setCourse = courseId =>
     this.courseId = courseId
 
-  enroll = sectionId =>
+  enroll = sectionId => {
     this.sectionService
-      .enroll(this.user._id, sectionId)
+      .enroll(this.user._id, sectionId);
+    this.getSections();
+  }
+
   ngOnInit() {
     this.userService.currentUser()
       .then((user) => {
-        this.user = user;
-        this.sectionService.findSectionsForCourse(this.courseId)
-          .then(sections => this.sections = sections);
-      });
+          this.user = user;
+          this.getSections();
+        }
+    );
   }
+  getSections() {
+        this.sectionService.findSectionsForCourse(this.courseId)
+          .then(sections => {
+            this.sectionsCourse = sections;
+            this.sectionService.findAllSectionsForStudent(this.user._id)
+              .then(section => {
+                this.sectionsCourse = sections.filter(
+                  s => {
+                    for (let sec in section) {
+                      let ss = section[sec];
+                      if ( JSON.stringify(ss.section) === JSON.stringify(s)) {
+                        return false;
+                      }
+                    }
+                    return true;
+                  }
+                );
+                this.sectionsStudent = sections.filter(
+                  s => {
+                    for (let sec in section) {
+                      let ss = section[sec];
+                      if ( JSON.stringify(ss.section) === JSON.stringify(s) ) {
+                        return true;
+                      }
+                    }
+                    return false;
+                  }
+                );
+              });
+
+          });
+  }
+
+
 }

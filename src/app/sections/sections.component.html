@@ -24,11 +24,25 @@
                class="form-control" placeholder="Section name">
         <input [(ngModel)]="section.seats"
                class="form-control" placeholder="Seats Available">
-        <button (click)="addSection(section)"
-                class="btn btn-success btn-sm float-right">Add</button>
+        <span class="form-control border-0 align-content-center" >
+          <button (click)="addSection(section)" *ngIf="edit === false"
+                  class="btn btn-success btn-sm">Add</button>
+        <button (click)="updateSection()" *ngIf="edit === true"
+                class="btn btn-success btn-sm">Update</button></span>
       </li>
       <li *ngFor="let section of sections" class="list-group-item">
         {{section.name}} - {{section.seats}}
+        <button class="btn float-right" type="button" id="remove" (click)= "deleteSection(section)">
+
+        <i class="fa-1x fa fa-times"></i>
+
+        </button>
+
+        <button class="btn float-right" type="button" (click) ="editSection(section)" id="edit">
+
+        <i class="fa fa-pencil"></i>
+
+        </button>
       </li>
     </ul>
   </div>

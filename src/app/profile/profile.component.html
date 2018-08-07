@@ -2,7 +2,8 @@
 <div class="container-fluid">
 <h2>Welcome {{currentUser.username}}</h2>
 
-<h3>Enrollments</h3>
+<h3>Student Details</h3>
+
 
 <input [(ngModel)]="currentUser.username" class="form-control" placeholder="Username" disabled/>
 <input [(ngModel)]="currentUser.firstName" class="form-control" placeholder="First Name"/>
@@ -10,21 +11,23 @@
 <input [(ngModel)]="currentUser.email" class="form-control" placeholder="Email id"/>
   <input [(ngModel)]="currentUser.phoneNo" class="form-control" placeholder="Phone Number"/>
   <input [(ngModel)]="currentUser.address" class="form-control" placeholder="Address"/>
+  <button (click)="update()" class="btn btn-primary btn-block">
+    Update
+  </button>
+  <a id="viewSections" class="link" routerLink="/home/sections">View Sections</a>
 
-<ul class="list-group">
+  <ul class="list-group">
 
-  <li class="list-group-item" *ngFor="let section of currentUser.sections">
+  <li class="list-group-item" *ngFor="let sectionObj of sections">
 
-    {{section.title}} (seats: 23)
+    {{sectionObj.section.name}} ({{sectionObj.section.seats}})  Grade - A
 
-    <button class="float-right">Drop</button>
+    <button (click)='drop(sectionObj.section._id)' class="float-right">Drop</button>
 
   </li>
 
-</ul>
-<button (click)="update()" class="btn btn-primary btn-block">
-  Update
-</button>
-<a class="link" routerLink="/home/logout">Logout</a>
+  </ul>
+
+<a class="link" (click)="logout()" routerLink="/home/login">Logout</a>
 <a class="link" routerLink="/home">Home</a>
 </div>

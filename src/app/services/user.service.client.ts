@@ -23,6 +23,10 @@ export class UserServiceClient {
       body: JSON.stringify(user)
     }).then(response => response.json())
 
+  logout = () =>  fetch('http://localhost:4000/api/logout', {
+    credentials: 'include'
+  });
+
   currentUser = () =>
     fetch('http://localhost:4000/api/currentUser', {
       credentials: 'include'

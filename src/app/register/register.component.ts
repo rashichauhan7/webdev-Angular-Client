@@ -23,7 +23,9 @@ export class RegisterComponent implements OnInit {
       verifyPassword: verifyPassword,
       firstName: firstName,
       lastName: lastName,
-      email: email
+      email: email,
+      address: '',
+      phoneNo: ''
     };
     console.log(user);
     if (this.password === this.verifyPassword) {
