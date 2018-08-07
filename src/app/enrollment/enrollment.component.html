@@ -13,7 +13,7 @@
   <li *ngFor="let section of sectionsCourse" class="list-group-item">
     <b>{{section.name}} (seats: {{section.seats}})</b>
 
-    <button id="enroll" class="btn btn-success float-right" (click)="enroll(section._id)" *ngIf="user._id !== undefined">Enroll</button>
+    <button id="enroll" class="btn btn-success float-right" (click)="enroll(section._id)" *ngIf="user._id !== undefined && section.seats > 0">Enroll</button>
     <label id="login" class="float-right" *ngIf="user._id === undefined">Cannot Enroll! Please Login first</label>
   </li>
 
