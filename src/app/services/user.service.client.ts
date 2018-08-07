@@ -10,7 +10,7 @@ export class UserServiceClient {
         'content-type': 'application/json'
       },
       body: JSON.stringify(user)
-    }).then( response => response)
+    }).then( response => response.json())
 
   register = (user) =>
     fetch('https://webdev-angular-node-server.herokuapp.com/api/register', {
