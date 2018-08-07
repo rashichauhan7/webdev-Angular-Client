@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     };
     console.log(user);
     if (this.password === this.verifyPassword) {
-      this.userService.findUserByUserName(username)
+      this.userService.findUserByUserName(user)
         .then((u) => {
           if (u === null) {
             this.userService.register(user)
