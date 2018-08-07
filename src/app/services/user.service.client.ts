@@ -6,14 +6,14 @@ export class UserServiceClient {
     const user = {
       username: username
     };
-    fetch('http://localhost:4000/api/user', {
+    return fetch('http://localhost:4000/api/user', {
       method: 'post',
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify(user)
-    })
+    });
   }
   register = (user) =>
     fetch('https://webdev-angular-node-server.herokuapp.com/api/register', {
