@@ -11,16 +11,24 @@ export class CourseNavigatorComponent implements OnInit {
 
 
   courses = [];
-  selectedCourse = {};
-  selectedModule = {};
-  selectedLesson = {};
-  selectedTopic = {};
+  selectedCourse = {
+    modules: []
+  };
+  selectedModule = {
+    lessons: []
+  };
+  selectedLesson = {
+    topic: []
+  };
+  selectedTopic = {
+    widgets: []
+  };
   courseTitle: string;
   constructor(private courseService: CourseServiceClient) { }
 
   selectCourse(course)  {
     this.selectedCourse = course;
-    this.selectedModule = {};
+    this.selectedModule = {  lessons: []};
   }
 
   deleteCourse(courseId) {
@@ -43,12 +51,12 @@ export class CourseNavigatorComponent implements OnInit {
 
   selectModule(module) {
     this.selectedModule = module;
-    this.selectedLesson = {};
+    this.selectedLesson = { topic: []};
   }
 
   selectLesson(lesson) {
     this.selectedLesson = lesson;
-    this.selectedTopic = {};
+    this.selectedTopic = { widgets: []};
   }
 
   selectTopic(topic) {
