@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class UserServiceClient {
   findUserByUserName = (user) =>
-    fetch('http://localhost:3000/api/user', {
+    fetch('https://webdev-angular-node-server.herokuapp.com/api/user', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -13,7 +13,7 @@ export class UserServiceClient {
     }).then( response => response.json())
 
   register = (user) =>
-    fetch('http://localhost:3000/api/register', {
+    fetch('https://webdev-angular-node-server.herokuapp.com/api/register', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -23,7 +23,7 @@ export class UserServiceClient {
     })
 
   login = (user) =>
-    fetch('http://localhost:3000/api/login', {
+    fetch('https://webdev-angular-node-server.herokuapp.com/api/login', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -32,17 +32,17 @@ export class UserServiceClient {
       body: JSON.stringify(user)
     }).then(response => response.json())
 
-  logout = () =>  fetch('http://localhost:3000/api/logout', {
+  logout = () =>  fetch('https://webdev-angular-node-server.herokuapp.com/api/logout', {
     credentials: 'include'
   })
 
   currentUser = () =>
-    fetch('http://localhost:3000/api/currentUser', {
+    fetch('https://webdev-angular-node-server.herokuapp.com/api/currentUser', {
       credentials: 'include'
     }).then(response => response.json())
 
   updateUser = (user) =>
-    fetch('http://localhost:3000/api/profile', {
+    fetch('https://webdev-angular-node-server.herokuapp.com/api/profile', {
       method: 'post',
       credentials: 'include',
       headers: {
