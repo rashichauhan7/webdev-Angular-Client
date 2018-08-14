@@ -9,6 +9,8 @@ import {EnrollmentComponent} from './enrollment/enrollment.component';
 import {CourseNavigatorComponent} from './course-navigator/course-navigator.component';
 import {QuizListComponent} from './quiz-list/quiz-list.component';
 import {QuizTakerComponent} from './quiz-taker/quiz-taker.component';
+import {QuizSubmissionsComponent} from './quiz-submissions/quiz-submissions.component';
+import {QuizAnswersComponent} from './quiz-answers/quiz-answers.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -25,6 +27,8 @@ const appRoutes: Routes = [
   {path: 'home/courses', component: CourseNavigatorComponent},
   {path: 'home/quizzes', component: QuizListComponent},
   {path: 'quiz/:quizId', component: QuizTakerComponent},
+  {path: 'quiz/:quizId/submissions', component: QuizSubmissionsComponent},
+  {path: 'quiz/:quizId/submissions/:sid/answers', component: QuizAnswersComponent},
   {path: '**', component: WhiteboardComponent}
 ];
 export const routing = RouterModule.forRoot(appRoutes);

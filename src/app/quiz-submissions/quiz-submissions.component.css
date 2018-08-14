@@ -1,0 +1,12 @@
+
+li.head
+{
+  border-style: solid;
+}
+li {
+  padding: 10px;
+  font-size: large;
+  margin: 10px;
+  border-style: groove;
+  border-radius: 2px;
+}

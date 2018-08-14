@@ -9,6 +9,10 @@ export class TrueFalseComponent implements OnInit {
   @Input() question;
   constructor() { }
 
+  selected = trueOrFalse => {
+    this.question.trueFalseAnswer = trueOrFalse;
+  }
+
   ngOnInit() {
   }
 

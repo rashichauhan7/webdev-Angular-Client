@@ -10,6 +10,7 @@ export class FillBlanksComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.question.fillBlanksAnswers = {};
   }
 
 }

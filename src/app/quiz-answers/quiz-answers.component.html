@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="assets/dist/css/bootstrap.css">
+<div class="container-fluid">
+  <h3>Answers {{quiz.title}}</h3>
+    <ul class="list-group">
+    <li *ngFor="let answer of answers" class="list-group-item">
+      <h4>
+      {{answer.question.title}}
+      <div class="float-right">{{answer.question.points}}</div>
+      </h4>
+      <p>{{answer.question.description}}</p>
+
+      <div [ngSwitch]="answer.question.questionType">
+
+        <div *ngSwitchCase="'ESSAY'">
+        <app-essay-question [question]="answer.question"></app-essay-question>
+          <br/>
+        <h4 >Answer: {{answer.essayAnswer}}</h4>
+        </div>
+        <div *ngSwitchCase="'TRUE_FALSE'">
+        <app-true-false [question]="answer.question" ></app-true-false>
+          <br/>
+        <h4>Answer: {{answer.trueFalseAnswer}}</h4>
+        </div>
+        <div *ngSwitchCase="'FILL_BLANKS'">
+        <app-fill-blanks [question]="answer.question" ></app-fill-blanks>
+          <br/>
+        <h4>Answer: {{answer.fillBlanksAnswers[0].variable123}}, {{answer.fillBlanksAnswers[0].variable234}}</h4>
+        </div>
+        <div *ngSwitchCase="'CHOICE'">
+        <app-multiple-choice-question [question]="answer.question" ></app-multiple-choice-question>
+          <br/>
+        <h4 >Answer: <div [ngSwitch]="answer.multipleChoiceAnswer">
+          <div *ngSwitchCase="1">Choice A</div>
+          <div *ngSwitchCase="2">Choice B</div>
+          <div *ngSwitchCase="3">Choice C</div>
+          <div *ngSwitchCase="4">Choice D</div>
+        </div></h4>
+        </div>
+      </div>
+    </li>
+    </ul>
+</div>
+
+
+

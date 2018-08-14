@@ -1,8 +1,8 @@
+<link rel="stylesheet" href="assets/dist/css/bootstrap.css">
 <div class="container-fluid">
   <h2>Quiz Taker</h2>
 
-<h3>{{quiz.title}}
-<button class="btn btn-primary float-right" (click)="submitQuiz(quiz)">Submit</button></h3>
+  <h3>{{quiz.title}}</h3>
 
 <ul class="list-group">
   <li *ngFor="let question of quiz.questions" class="list-group-item">
@@ -19,4 +19,8 @@
     </div>
   </li>
 </ul>
+  <div align="center">
+  <button class="btn btn-primary" (click)="submitQuiz(quiz)">Submit</button>
+  <button class="btn btn-danger" (click)="cancelQuiz()">Cancel</button>
+  </div>
 </div>

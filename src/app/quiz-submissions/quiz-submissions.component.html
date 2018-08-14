@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h3>Submissions for Quiz {{quiz.title}}</h3>
+  <input class="form-control" width="90%" (ngModelChange)="filterResults($event)" [(ngModel)]="search" placeholder="Search username"/>
+  <ul class="list-group">
+    <li class="head row">
+      <div class="col-lg-3">Username</div>
+      <div class="col-lg-3">Quiz Name</div>
+      <div class="col-lg-3">Submission Time</div>
+      <div class="col-lg-3">Quiz Answers</div>
+    </li>
+    <li class="row " *ngFor="let submission of sub">
+      <div class="col-lg-3">{{submission.student.username}}</div>
+      <div class="col-lg-3">{{submission.quiz.title}}</div>
+      <div class="col-lg-3" *ngIf="submission.timestamp === undefined"></div>
+      <div class="col-lg-3" *ngIf="submission.timestamp !== undefined">{{submission.timestamp.toString().substr(0, 10)}} Time: {{submission.timestamp.toString().substr(11, 8)}} </div>
+      <div class="col-lg-3"><a routerLink="{{submission._id}}/answers">answers</a></div>
+    </li>
+  </ul>
+</div>
