@@ -19,7 +19,7 @@ export class QuizAnswersComponent implements OnInit {
 
   sid = '';
   answers = [];
-  quiz = {};
+  quiz = {title: ''};
   question = {questionType: ''}
   getParams(params) {
             this.subService.getSubmission(params['quizId'], params['sid'])
