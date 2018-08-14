@@ -22,9 +22,13 @@ export class QuizTakerComponent implements OnInit {
   }
   submitQuiz(quiz) {
     this.quiz.timestamp = Date();
+    alert('Quiz Submitted');
     this.service
       .submitQuiz(quiz)
-      .then(submission => console.log(submission));
+      .then(submission => {
+        console.log(submission);
+        this.route.navigate(['/', 'home']);
+      });
   }
   ngOnInit() {
     this.router.params.subscribe(params => this.service
